@@ -1,0 +1,22 @@
+.language-selection {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Language button styling */
+.option-button {
+  display: flex;
+  gap: 4px;
+}
+
+.language-english {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* .language-english {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: 400;
+} */

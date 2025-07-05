@@ -1,0 +1,50 @@
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:#1F002B;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.progress-circle {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.progress-percentage {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+}
+
+.loading-message {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .progress-circle svg {
+    width: 150px;
+    height: 150px;
+  }
+
+  .progress-percentage {
+    font-size: 36px;
+  }
+
+  .loading-message {
+    font-size: 16px;
+  }
+}

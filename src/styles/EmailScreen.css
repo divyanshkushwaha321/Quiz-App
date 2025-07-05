@@ -1,0 +1,93 @@
+.email-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  
+}
+
+.email-content {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.email-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.email-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 40px;
+}
+
+.email-form {
+  margin-bottom: 40px;
+}
+
+.input-container {
+  margin-bottom: 24px;
+}
+
+.email-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.email-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.email-input:focus {
+  border-color: #e91e63;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.email-input.error {
+  border-color: #f44336;
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 14px;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.privacy-notice {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
+
+.privacy-link {
+  color: #e91e63;
+  text-decoration: none;
+}
+
+.privacy-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .email-title {
+    font-size: 36px;
+  }
+
+  .email-screen {
+    padding: 16px;
+  }
+}

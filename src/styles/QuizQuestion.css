@@ -1,0 +1,261 @@
+.quiz-question {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.emoji-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.emoji-option {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 16px;
+  padding: 24px 16px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.emoji-option:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.emoji {
+  font-size: 48px;
+}
+
+.emoji-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.option-button.multiple {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.option-button.multiple.selected {
+  border: 1px solid #e91e63;
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.checkbox.checked {
+  background: #e91e63;
+  border-color: #e91e63;
+}
+
+/* Updated bubble layout to match the design */
+.bubble-container {
+  position: relative;
+  min-height: 400px;
+  margin: 40px 0;
+  padding: 20px;
+}
+
+.bubble-option {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.bubble-option:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.bubble-option.selected {
+  background: rgba(233, 30, 99, 0.3);
+  border-color: #e91e63;
+  transform: scale(1.1);
+}
+
+.bubble-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bubble-option.disabled:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.bubble-emoji {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.bubble-text {
+  font-size: 13px;
+  line-height: 1.2;
+  max-width: 80px;
+}
+
+/* Positioning for scattered layout to match the image */
+.bubble-option:nth-child(1) {
+  /* Werewolf */
+  top: 20px;
+  left: 20px;
+}
+
+.bubble-option:nth-child(2) {
+  /* Action */
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bubble-option:nth-child(3) {
+  /* Royal Obsession */
+  top: 20px;
+  right: 20px;
+}
+
+.bubble-option:nth-child(4) {
+  /* Billionaire */
+  top: 70px;
+  right: -100px;
+}
+
+.bubble-option:nth-child(5) {
+  /* Romance */
+  top: 150px;
+  left: 20px;
+}
+
+.bubble-option:nth-child(6) {
+  /* Young Adult */
+  top: 190px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bubble-option:nth-child(7) {
+  /* Bad Boy */
+  top: 150px;
+  right: 20px;
+}
+
+/* Selection counter */
+.selection-counter {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 480px) {
+  .emoji-options {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .emoji-option {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 20px;
+  }
+
+  .emoji {
+    font-size: 32px;
+  }
+
+  .bubble-container {
+    min-height: 350px;
+    margin: 20px 0;
+    padding: 10px;
+  }
+
+  .bubble-option {
+    width: 90px;
+    height: 90px;
+    font-size: 12px;
+  }
+
+  .bubble-emoji {
+    font-size: 28px;
+  }
+
+  .bubble-text {
+    font-size: 11px;
+    max-width: 70px;
+  }
+
+  .bubble-option:nth-child(1) {
+    /* Werewolf */
+    top: 10px;
+    left: 1px;
+  }
+
+  .bubble-option:nth-child(2) {
+    /* Action */
+    top: 60px;
+    left: 40%;
+    transform: translateX(-50%);
+  }
+
+  .bubble-option:nth-child(3) {
+    /* Royal Obsession */
+    top: 10px;
+    right: 70px;
+  }
+
+  .bubble-option:nth-child(4) {
+    /* Billionaire */
+    top: 70px;
+    right: -10px;
+  }
+
+  .bubble-option:nth-child(5) {
+    /* Romance */
+    top: 110px;
+    left: 1px;
+  }
+
+  .bubble-option:nth-child(6) {
+    /* Young Adult */
+    top: 162px;
+    left: 40%;
+    transform: translateX(-50%);
+  }
+
+  .bubble-option:nth-child(7) {
+    /* Bad Boy */
+    top: 115px;
+    right: 74px;
+  }
+}

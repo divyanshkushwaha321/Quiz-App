@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  background-color:#1F002B;
+  min-height: 100vh;
+  color:#FFFFFF;
+
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* Header Section - Progress Bar and Navigation */
+.progress-header {
+  padding: 20px;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Back Button Styling */
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%; /* Circular button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+/* Question Counter Display */
+.progress-info {
+  flex: 1; /* Take up available space */
+  text-align: center;
+}
+
+.question-number {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e91e63; /* Pink accent color matching design */
+}
+
+/* Progress Bar Container */
+.progress-bar {
+  flex: 3;
+  height: 6px;
+  background: rgba(200, 192, 192, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 15px 0 30px 0;
+}
+
+/* Progress Bar Fill */
+.progress-fill {
+  height: 100%;
+  background: #E4229C;
+
+  border-radius: 2px;
+  transition: width 0.3s ease; /* Smooth width animation */
+}
+
+/* Main Content Area */
+.question-content {
+  flex: 1; /* Take up remaining vertical space */
+  padding: 0 20px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Question Title Styling */
+.question-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2; /* Tighter line spacing for large text */
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Question Subtitle Styling */
+.question-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Options Container */
+.options-container {
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between option buttons */
+  max-width: 400px; /* Limit width for better readability */
+  margin: 0 auto; /* Center horizontally */
+  width: 100%;
+}
+
+/* Standard Option Button Styling */
+.option-button {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  border: none;
+  border-radius: 16px; /* Rounded corners matching design */
+  padding: 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Smooth hover animations */
+  text-align: left;
+  position: relative;
+}
+
+/* Option Button Hover Effects */
+.option-button:hover {
+  background: rgba(255, 255, 255, 0.15); /* Slightly more opaque on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.option-button:active {
+  transform: translateY(0); /* Return to normal position when clicked */
+}
+
+/* Next Button for Multi-Selection Questions */
+.next-button {
+  border: none;
+  background-color: #E4229C;
+  border-radius: 50px; /* Fully rounded button */
+  padding: 16px 32px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Next Button Hover Effects */
+.next-button:hover {
+  background-color: #e40693;  
+}
+
+/* Disabled Next Button State */
+.next-button.disabled {
+  opacity: 0.5; /* Semi-transparent when disabled */
+  cursor: not-allowed;
+}
+
+.next-button.disabled:hover {
+  transform: none; /* No hover effects when disabled */
+  box-shadow: none;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 480px) {
+  .question-title {
+    font-size: 28px; /* Smaller title on mobile */
+  }
+
+  .progress-header {
+    padding: 16px; /* Less padding on mobile */
+  }
+
+  .question-content {
+    padding: 0 16px 32px; /* Less padding on mobile */
+  }
+}
