@@ -1,37 +1,32 @@
-/**
- * Internationalization (i18n) Translations
- *
- * Supports 4 languages: English (en), French (fr), German (de), Spanish (es)
- */
 
 export const translations = {
   // English translations (default language)
   en: {
-    loading: "Finding collections for you...", // Loading screen message
-    next: "Next", // Next button text for questions
-    selectionCounter: "selected", // For "3/4 selected" instead of "2/3 selected"
+    loading: "Finding collections for you...", 
+    next: "Next", 
+    selectionCounter: "selected",
     email: {
-      title: "Email", // Screen title
-      subtitle: "Enter your email to get full access", // Instruction text
-      placeholder: "Your email", // Input placeholder
-      privacy: "By continuing I agree with Privacy policy and Terms of use.", // Legal notice
-      next: "Next", // Submit button text
-      required: "Email is required", // Validation error for empty field
-      invalid: "Please enter a valid email address", // Validation error for invalid format
+      title: "Email",
+      subtitle: "Enter your email to get full access", 
+      placeholder: "Your email",
+      privacy: "By continuing I agree with Privacy policy and Terms of use.",
+      next: "Next",
+      required: "Email is required",
+      invalid: "Please enter a valid email address",
     },
     thankyou: {
-      title: "Thank you", // Main title
-      subtitle: "for supporting us and passing quiz", // Subtitle text
-      download: "Download my answers", // Download button text
-      retake: "Retake quiz", // Retake button text
+      title: "Thank you",
+      subtitle: "for supporting us and passing quiz",
+      download: "Download my answers",
+      retake: "Retake quiz",
     },
   },
 
   // French translations
   fr: {
     loading: "Recherche de collections pour vous...",
-    next: "Suivant", // Next button text for questions
-    selectionCounter: "sélectionné", // For "3/4 sélectionné" instead of "2/3 sélectionné"
+    next: "Suivant",
+    selectionCounter: "sélectionné",
     email: {
       title: "Email",
       subtitle: "Entrez votre email pour obtenir un accès complet",
@@ -52,8 +47,8 @@ export const translations = {
   // German translations
   de: {
     loading: "Sammlungen für Sie finden...",
-    next: "Weiter", // Next button text for questions
-    selectionCounter: "ausgewählt", // For "3/4 ausgewählt" instead of "2/3 ausgewählt"
+    next: "Weiter", 
+    selectionCounter: "ausgewählt",
     email: {
       title: "Email",
       subtitle: "Geben Sie Ihre E-Mail ein, um vollen Zugang zu erhalten",
@@ -74,8 +69,8 @@ export const translations = {
   // Spanish translations
   es: {
     loading: "Encontrando colecciones para ti...",
-    next: "Siguiente", // Next button text for questions
-    selectionCounter: "seleccionado", // For "3/4 seleccionado" instead of "2/3 seleccionado"
+    next: "Siguiente", 
+    selectionCounter: "seleccionado", 
     email: {
       title: "Email",
       subtitle: "Ingresa tu email para obtener acceso completo",
