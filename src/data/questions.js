@@ -18,8 +18,8 @@
 
 export const questions = [
   {
-    id: "gender", // Unique identifier for this question
-    type: "emoji", // Uses large emoji buttons for selection
+    id: "gender", 
+    type: "emoji",
     title: {
       en: "What gender do you identify with?",
       fr: "À quel genre vous identifiez-vous?",
@@ -34,7 +34,7 @@ export const questions = [
     },
     options: [
       {
-        emoji: "👩", // Visual emoji for female option
+        emoji: "👩", // female option
         text: {
           en: "Female",
           fr: "Femme",
@@ -43,7 +43,7 @@ export const questions = [
         },
       },
       {
-        emoji: "👨", // Visual emoji for male option
+        emoji: "👨", // male option
         text: {
           en: "Male",
           fr: "Homme",
@@ -52,7 +52,7 @@ export const questions = [
         },
       },
       {
-        emoji: "😊", // Visual emoji for other option
+        emoji: "😊", // other option
         text: {
           en: "Other",
           fr: "Autre",
