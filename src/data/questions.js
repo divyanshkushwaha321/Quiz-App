@@ -160,7 +160,7 @@ export const questions = [
         },
       },
       {
-        emoji: "⚔️",// Action
+        emoji: "⚔️",
         text: {
           en: "Action",
           fr: "Action",
@@ -178,7 +178,7 @@ export const questions = [
         },
       },
       {
-        emoji: "🤑", // Wealth/billionaire theme
+        emoji: "💰", // Wealth/billionaire theme
         text: {
           en: "Billionaire",
           fr: "Milliardaire",
@@ -187,7 +187,7 @@ export const questions = [
         },
       },
       {
-        emoji: "🥰", // Romance genre
+        emoji: "💕", // Romance genre
         text: {
           en: "Romance",
           fr: "Romance",
@@ -205,7 +205,7 @@ export const questions = [
         },
       },
       {
-        emoji: "🤠", // Bad boy trope
+        emoji: "😈", // Bad boy trope
         text: {
           en: "Bad Boy",
           fr: "Mauvais Garçon",

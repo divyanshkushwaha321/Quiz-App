@@ -65,7 +65,6 @@
   border-color: #e91e63;
 }
 
-/* Updated bubble layout to match the design */
 .bubble-container {
   position: relative;
   min-height: 400px;
@@ -125,7 +124,6 @@
   max-width: 80px;
 }
 
-/* Positioning for scattered layout to match the image */
 .bubble-option:nth-child(1) {
   /* Werewolf */
   top: 20px;
@@ -225,7 +223,6 @@
     /* Action */
     top: 60px;
     left: 40%;
-    transform: translateX(-50%);
   }
 
   .bubble-option:nth-child(3) {
@@ -250,7 +247,6 @@
     /* Young Adult */
     top: 162px;
     left: 40%;
-    transform: translateX(-50%);
   }
 
   .bubble-option:nth-child(7) {

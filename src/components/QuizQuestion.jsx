@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "../styles/QuizQuestion.css"
 
 /**
@@ -17,12 +17,16 @@ const QuizQuestion = ({
   translations, // Localization object
   selectedLanguage, // Add this new prop for language selection
 }) => {
-  // Local state for multiple selection questions (checkboxes and bubbles)
+  
   // Stores temporary selections before user clicks "Next"
   const [tempSelectedAnswers, setTempSelectedAnswers] = useState(Array.isArray(selectedAnswer) ? selectedAnswer : [])
 
+  useEffect(() => {
+    // Reset temporary selections when question changes or when navigating back
+    setTempSelectedAnswers(Array.isArray(selectedAnswer) ? selectedAnswer : [])
+  }, [question.id, selectedAnswer])
+
   /**
-   * Handle single selection questions (radio button behavior)
    * Immediately moves to next question
    */
   const handleSingleSelect = (option) => {
@@ -54,7 +58,7 @@ const QuizQuestion = ({
    */
   const handleBubbleSelect = (option) => {
     const isSelected = tempSelectedAnswers.includes(option)
-    const isAtLimit = tempSelectedAnswers.length >= 4 // Changed from 3 to 4
+    const isAtLimit = tempSelectedAnswers.length >= 3 // Changed from 4 to 3
 
     if (isSelected) {
       // Always allow deselection
@@ -114,7 +118,7 @@ const QuizQuestion = ({
                 {question.options.map((option, index) => {
                   const optionText = option.text[selectedLanguage] || option.text.en
                   const isSelected = tempSelectedAnswers.includes(optionText)
-                  const isAtLimit = tempSelectedAnswers.length >= 4
+                  const isAtLimit = tempSelectedAnswers.length >= 3
                   const isDisabled = !isSelected && isAtLimit
 
                   return (
@@ -131,8 +135,8 @@ const QuizQuestion = ({
                 })}
               </div>
 
-              {/* Show Next button only when selections are made */}
-              {tempSelectedAnswers.length > 0 && (
+              {/* Show Next button only when exactly 3 selections are made */}
+              {tempSelectedAnswers.length === 3 && (
                 <button className="next-button" onClick={handleMultiSelectNext}>
                   {translations.next || "Next"}
                 </button>
