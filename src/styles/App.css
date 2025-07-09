@@ -32,26 +32,26 @@ body {
   border: none;
   cursor: pointer;
   padding: 8px;
-  border-radius: 50%; /* Circular button */
+  border-radius: 50%; 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .back-button:hover {
-  background: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Question Counter Display */
 .progress-info {
-  flex: 1; /* Take up available space */
+  flex: 1; 
   text-align: center;
 }
 
 .question-number {
   font-size: 18px;
   font-weight: 600;
-  color: #e91e63; /* Pink accent color matching design */
+  color: #e91e63; 
 }
 
 /* Progress Bar Container */
@@ -64,81 +64,75 @@ body {
   margin: 15px 0 30px 0;
 }
 
-/* Progress Bar Fill */
 .progress-fill {
   height: 100%;
   background: #E4229C;
-
   border-radius: 2px;
-  transition: width 0.3s ease; /* Smooth width animation */
+  transition: width 0.3s ease; 
 }
 
 /* Main Content Area */
 .question-content {
-  flex: 1; /* Take up remaining vertical space */
+  flex: 1;
   padding: 0 20px 40px;
   display: flex;
   flex-direction: column;
 }
 
-/* Question Title Styling */
 .question-title {
   font-size: 32px;
   font-weight: 700;
-  line-height: 1.2; /* Tighter line spacing for large text */
+  line-height: 1.2; 
   margin-bottom: 16px;
   text-align: center;
 }
 
-/* Question Subtitle Styling */
 .question-subtitle {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+  color: rgba(255, 255, 255, 0.7);
   text-align: center;
   margin-bottom: 40px;
 }
 
 /* Options Container */
 .options-container {
-  flex: 1; /* Take up remaining space */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Space between option buttons */
-  max-width: 400px; /* Limit width for better readability */
-  margin: 0 auto; /* Center horizontally */
+  gap: 16px; 
+  max-width: 400px; 
+  margin: 0 auto; 
   width: 100%;
 }
 
-/* Standard Option Button Styling */
 .option-button {
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  background: rgba(255, 255, 255, 0.1);
   border: none;
-  border-radius: 16px; /* Rounded corners matching design */
+  border-radius: 16px; 
   padding: 20px;
   color: white;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease; /* Smooth hover animations */
+  transition: all 0.2s ease; 
   text-align: left;
   position: relative;
 }
 
-/* Option Button Hover Effects */
 .option-button:hover {
-  background: rgba(255, 255, 255, 0.15); /* Slightly more opaque on hover */
-  transform: translateY(-2px); /* Subtle lift effect */
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px); 
 }
 
 .option-button:active {
-  transform: translateY(0); /* Return to normal position when clicked */
+  transform: translateY(0);
 }
 
 /* Next Button for Multi-Selection Questions */
 .next-button {
   border: none;
   background-color: #E4229C;
-  border-radius: 50px; /* Fully rounded button */
+  border-radius: 50px;
   padding: 16px 32px;
   color: white;
   font-size: 18px;
@@ -147,33 +141,31 @@ body {
   margin-top: 20px;
 }
 
-/* Next Button Hover Effects */
 .next-button:hover {
   background-color: #e40693;  
 }
 
-/* Disabled Next Button State */
 .next-button.disabled {
-  opacity: 0.5; /* Semi-transparent when disabled */
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
 .next-button.disabled:hover {
-  transform: none; /* No hover effects when disabled */
+  transform: none; 
   box-shadow: none;
 }
 
 /* Mobile Responsive Styles */
 @media (max-width: 480px) {
   .question-title {
-    font-size: 28px; /* Smaller title on mobile */
+    font-size: 28px; 
   }
 
   .progress-header {
-    padding: 16px; /* Less padding on mobile */
+    padding: 16px
   }
 
   .question-content {
-    padding: 0 16px 32px; /* Less padding on mobile */
+    padding: 0 16px 32px; 
   }
 }

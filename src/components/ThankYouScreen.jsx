@@ -1,14 +1,9 @@
 import "../styles/ThankYouScreen.css"
 
-/**
- * ThankYouScreen Component - Final screen after quiz completion
- * Provides options to download answers CSV or retake the quiz
- */
 const ThankYouScreen = ({ onRetakeQuiz, onDownloadCSV, translations }) => {
   return (
     <div className="thankyou-screen">
       <div className="thankyou-content">
-        {/* Thank you message - now localized */}
         <h1 className="thankyou-title">{translations.thankyou.title}</h1>
         <p className="thankyou-subtitle">{translations.thankyou.subtitle}</p>
 

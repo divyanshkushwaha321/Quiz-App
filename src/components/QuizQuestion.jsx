@@ -1,12 +1,6 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import "../styles/QuizQuestion.css"
 
-/**
- * QuizQuestion Component - Renders different types of quiz questions
- * Supports: single select, multiple select, emoji selection, and bubble selection
- */
 const QuizQuestion = ({
   question, // Current question object with title, options, type
   questionNumber, // Current question number (1-based)
@@ -26,17 +20,13 @@ const QuizQuestion = ({
     setTempSelectedAnswers(Array.isArray(selectedAnswer) ? selectedAnswer : [])
   }, [question.id, selectedAnswer])
 
-  /**
-   * Immediately moves to next question
-   */
+  
+  // Immediately moves to next question
   const handleSingleSelect = (option) => {
     onAnswerSelect(question.id, option)
   }
 
-  /**
-   * Handle multiple selection questions (checkbox behavior)
-   * Updates temporary state, requires "Next" button click
-   */
+  // Handle multiple selection questions (checkbox behavior)
   const handleMultiSelect = (option) => {
     const newSelection = tempSelectedAnswers.includes(option)
       ? tempSelectedAnswers.filter((item) => item !== option) // Remove if already selected
@@ -45,17 +35,12 @@ const QuizQuestion = ({
     setTempSelectedAnswers(newSelection)
   }
 
-  /**
-   * Submit multiple selections when "Next" button is clicked
-   */
+  // Submit multiple selections when "Next" button is clicked
   const handleMultiSelectNext = () => {
     onAnswerSelect(question.id, tempSelectedAnswers)
   }
 
-  /**
-   * Handle bubble selection questions (limited multiple selection)
-   * Allows up to 4 selections for topic preferences
-   */
+// Allows up to 4 selections for topic preferences
   const handleBubbleSelect = (option) => {
     const isSelected = tempSelectedAnswers.includes(option)
     const isAtLimit = tempSelectedAnswers.length >= 3 // Changed from 4 to 3
@@ -69,15 +54,13 @@ const QuizQuestion = ({
       const newSelection = [...tempSelectedAnswers, option]
       setTempSelectedAnswers(newSelection)
     }
-    // If at limit and not selected, do nothing (button should be disabled)
   }
 
-  // Calculate progress bar percentage - now includes language selection as step 1
+  // Calculate progress bar percentage
   const progressPercentage = (questionNumber / totalQuestions) * 100
 
   return (
     <div className="quiz-question">
-      {/* Header with back button, progress indicator, and progress bar */}
       <div className="progress-header">
         {/* Back navigation button */}
         <button className="back-button" onClick={onBack}>
@@ -93,13 +76,12 @@ const QuizQuestion = ({
           </span>
         </div>
 
-        {/* Visual progress bar */}
+        {/*progress bar */}
         <div className="progress-bar">
           <div className="progress-fill" style={{ width: `${progressPercentage}%` }}></div>
         </div>
       </div>
 
-      {/* Main question content area */}
       <div className="question-content">
         {/* Question title - now uses selected language */}
         <h1 className="question-title">{question.title[selectedLanguage] || question.title.en}</h1>
@@ -109,9 +91,8 @@ const QuizQuestion = ({
           <p className="question-subtitle">{question.subtitle[selectedLanguage] || question.subtitle.en}</p>
         )}
 
-        {/* Dynamic options container based on question type */}
         <div className={`options-container ${question.type}`}>
-          {/* BUBBLE TYPE: Topic selection with emoji bubbles (max 4 selections) */}
+          {/* BUBBLE TYPE: Topic selection with emoji bubbles*/}
           {question.type === "bubble" ? (
             <>
               <div className="bubble-container">
@@ -142,7 +123,7 @@ const QuizQuestion = ({
                 </button>
               )}
             </>
-          ) : /* EMOJI TYPE: Gender selection with large emoji buttons */
+          ) : /* EMOJI TYPE: Gender selection  */
           question.type === "emoji" ? (
             <div className="emoji-options">
               {question.options.map((option, index) => (
@@ -192,7 +173,7 @@ const QuizQuestion = ({
               )}
             </>
           ) : (
-            /* SINGLE TYPE: Default single selection (age ranges) */
+            /* SINGLE TYPE: Default single selection*/
             question.options.map((option, index) => (
               <button
                 key={index}

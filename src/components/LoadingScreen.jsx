@@ -1,17 +1,11 @@
 import "../styles/LoadingScreen.css"
 
-/**
- * LoadingScreen Component - Displays animated circular progress indicator
- * Shows progress from 0% to 100% over 5 seconds with loading message
- */
 const LoadingScreen = ({ progress, translations }) => {
   return (
     <div className="loading-screen">
       <div className="loading-content">
-        {/* Animated circular progress indicator */}
         <div className="progress-circle">
           <svg width="200" height="200" viewBox="0 0 200 200">
-            {/* Background circle (gray) */}
             <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255, 255, 255, 0.2)" strokeWidth="8" />
 
             {/* Progress circle (gradient) */}
@@ -24,9 +18,9 @@ const LoadingScreen = ({ progress, translations }) => {
               strokeWidth="8"
               strokeLinecap="round"
               // Calculate stroke dash offset based on progress percentage
-              strokeDasharray={`${2 * Math.PI * 90}`} // Full circumference
-              strokeDashoffset={`${2 * Math.PI * 90 * (1 - progress / 100)}`} // Offset based on progress
-              transform="rotate(-90 100 100)" // Start from top instead of right
+              strokeDasharray={`${2 * Math.PI * 90}`}
+              strokeDashoffset={`${2 * Math.PI * 90 * (1 - progress / 100)}`}
+              transform="rotate(-90 100 100)" 
             />
 
             {/* Gradient definition for progress circle */}
@@ -44,7 +38,7 @@ const LoadingScreen = ({ progress, translations }) => {
           </div>
         </div>
 
-        {/* Loading message below the progress circle - now localized */}
+        {/* Loading message below the progress circle*/}
         <p className="loading-message">{translations.loading || "Finding collections for you..."}</p>
       </div>
     </div>

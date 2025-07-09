@@ -9,23 +9,19 @@ import { translations } from "./data/translations"
 import { questions } from "./data/questions"
 
 function App() {
-  // Main application state management
   // currentStep controls which screen is displayed: language -> quiz -> loading -> email -> thankyou
   const [currentStep, setCurrentStep] = useState("language")
 
-  // Language selection (en, fr, de, es)
   const [selectedLanguage, setSelectedLanguage] = useState("en")
 
-  // Current question index (0-based) for quiz navigation
+  // Current question index for quiz navigation
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
 
   // Store all user answers with question ID as key
   const [answers, setAnswers] = useState({})
 
-  // User's email address for final submission
   const [userEmail, setUserEmail] = useState("")
 
-  // Loading progress percentage (0-100) for the loading screen
   const [loadingProgress, setLoadingProgress] = useState(0)
 
   // Get translations for current selected language
@@ -33,11 +29,11 @@ function App() {
   
   /**
    * Handle language selection from the first screen
-   * @param {string} language - Selected language code (en, fr, de, es)
+   * @param {string} language 
    */
   const handleLanguageSelect = (language) => {
     setSelectedLanguage(language)
-    setCurrentStep("quiz") // Move to quiz questions
+    setCurrentStep("quiz")
   }
 
   /**
@@ -52,12 +48,10 @@ function App() {
 
     // Check if there are more questions or if quiz is complete
     if (currentQuestionIndex < questions.length - 1) {
-      // Move to next question with slight delay for animation
       setTimeout(() => {
         setCurrentQuestionIndex(currentQuestionIndex + 1)
       }, 300)
     } else {
-      // Quiz complete - move to loading screen
       setTimeout(() => {
         setCurrentStep("loading")
         startLoading()
@@ -65,22 +59,17 @@ function App() {
     }
   }
 
-  /**
-   * Start the loading animation from 0% to 100% over 5 seconds
-   */
   const startLoading = () => {
     setLoadingProgress(0)
     const interval = setInterval(() => {
       setLoadingProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval)
-          // Move to email screen after loading completes
           setTimeout(() => {
             setCurrentStep("email")
           }, 500)
           return 100
         }
-        // Increment by 2% every 100ms = 5 seconds total
         return prev + 2
       })
     }, 100)
@@ -88,16 +77,13 @@ function App() {
 
   /**
    * Handle email submission after validation
-   * @param {string} email - Validated email address
+   * @param {string} email 
    */
   const handleEmailSubmit = (email) => {
     setUserEmail(email)
-    setCurrentStep("thankyou") // Move to final thank you screen
+    setCurrentStep("thankyou") 
   }
 
-  /**
-   * Reset all application state to restart the quiz
-   */
   const handleRetakeQuiz = () => {
     setCurrentStep("language")
     setCurrentQuestionIndex(0)
@@ -107,17 +93,15 @@ function App() {
     setSelectedLanguage("en")
   }
 
-  /**
-   * Generate and download CSV file with user's quiz answers
-   */
+  
   const handleDownloadCSV = () => {
     // Create CSV content with headers and answer data
     const csvContent = [
       ["order", "title", "type", "answer"], // CSV headers
       ...questions.map((question, index) => [
-        index + 1, // Question order number
-        question.title[selectedLanguage], // Localized question title
-        question.type, // Question type (single, multiple, emoji, bubble)
+        index + 1,
+        question.title[selectedLanguage],
+        question.type,
         // Handle both single answers and arrays (for multiple selection)
         Array.isArray(answers[question.id]) ? answers[question.id].join("; ") : answers[question.id] || "",
       ]),
@@ -135,46 +119,40 @@ function App() {
     window.URL.revokeObjectURL(url)
   }
 
-  /**
-   * Handle back button navigation in quiz
-   */
   const handleBackButton = () => {
     if (currentQuestionIndex > 0) {
-      // Go to previous question
       setCurrentQuestionIndex(currentQuestionIndex - 1)
     } else {
-      // Go back to language selection if on first question
       setCurrentStep("language")
     }
   }
 
-  // Render appropriate screen based on current step
   return (
     <div className="app">
-      {/* Language Selection Screen - First step */}
+      {/* Language Selection Screen */}
       {currentStep === "language" && <LanguageSelection onLanguageSelect={handleLanguageSelect} />}
 
-      {/* Quiz Questions Screen - Main quiz flow */}
+      {/* Quiz Questions Screen*/}
       {currentStep === "quiz" && (
         <QuizQuestion
           question={questions[currentQuestionIndex]}
-          questionNumber={currentQuestionIndex + 2} // +2 because language selection is step 1
-          totalQuestions={questions.length + 1} // +1 to include language selection
+          questionNumber={currentQuestionIndex + 2}
+          totalQuestions={questions.length + 1} 
           onAnswerSelect={handleAnswerSelect}
           onBack={handleBackButton}
           selectedAnswer={answers[questions[currentQuestionIndex]?.id]}
           translations={t}
-          selectedLanguage={selectedLanguage} // Pass selected language
+          selectedLanguage={selectedLanguage}
         />
       )}
 
-      {/* Loading Screen - 5 second animation */}
+      {/* Loading Screen*/}
       {currentStep === "loading" && <LoadingScreen progress={loadingProgress} translations={t} />}
 
-      {/* Email Input Screen - Collect user email */}
+      {/* Email Input Screen */}
       {currentStep === "email" && <EmailScreen onEmailSubmit={handleEmailSubmit} translations={t} />}
 
-      {/* Thank You Screen - Final screen with download/retake options */}
+      {/* Thank You Screen */}
       {currentStep === "thankyou" && (
         <ThankYouScreen onRetakeQuiz={handleRetakeQuiz} onDownloadCSV={handleDownloadCSV} translations={t} />
       )}

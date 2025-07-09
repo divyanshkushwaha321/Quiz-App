@@ -1,14 +1,7 @@
-"use client"
-
 import { useState } from "react"
 import "../styles/EmailScreen.css"
 
-/**
- * EmailScreen Component - Handles email input with validation
- * Validates email format and shows error states
- */
 const EmailScreen = ({ onEmailSubmit, translations }) => {
-  // Local state for email input and validation
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
 
@@ -22,30 +15,21 @@ const EmailScreen = ({ onEmailSubmit, translations }) => {
     return emailRegex.test(email)
   }
 
-  /**
-   * Handle form submission with validation
-   */
   const handleSubmit = () => {
-    // Check if email is empty
     if (!email.trim()) {
       setError("Email is required")
       return
     }
 
-    // Check if email format is valid
     if (!validateEmail(email)) {
       setError("Please enter a valid email address")
       return
     }
 
-    // Email is valid - clear error and submit
     setError("")
     onEmailSubmit(email)
   }
 
-  /**
-   * Handle input changes and clear errors
-   */
   const handleInputChange = (e) => {
     setEmail(e.target.value)
     // Clear error when user starts typing
@@ -93,7 +77,7 @@ const EmailScreen = ({ onEmailSubmit, translations }) => {
         <button
           className={`next-button ${!email.trim() || error ? "disabled" : ""}`}
           onClick={handleSubmit}
-          disabled={!email.trim() || !!error} // Disable if empty or has error
+          disabled={!email.trim() || !!error}
         >
           Next
         </button>
